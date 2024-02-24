@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 public class Task {
+    private static Double importanceWeight = 0.3;
+    private static Double urgencyWeight = 0.5;
+    private static Double easinessWeight = 0.2;
+
     public Integer orderId;
     public String description;
     public Integer importance;
@@ -12,6 +16,14 @@ public class Task {
     public Integer easiness;
     public Integer estimatedTime;
     public String dependency;
+
+    public Double getTotalWeight() {
+        return (
+            (Task.importanceWeight*this.importance)*
+            (Task.urgencyWeight*this.urgency)*
+            (Task.easinessWeight*this.easiness)
+        );
+    }
 
     public static List<Task> convertToTaskList(List<Map<String, Object>> data) {
         List<Task> output = new ArrayList<>();

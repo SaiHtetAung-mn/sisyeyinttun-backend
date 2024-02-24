@@ -17,10 +17,10 @@ public class TaskController {
     @Autowired
     TaskService taskService;
 
-    @PostMapping("/api/compute")
-    public ResponseEntity<String> computeSchedule(@RequestBody Map<String, Object> payload) {
+    @PostMapping("/api/generate")
+    public ResponseEntity<List<Task>> computeSchedule(@RequestBody Map<String, Object> payload) {
         Integer timePerDay = (Integer)payload.get("timePerDay");
         List<Task> tasks = Task.convertToTaskList((List<Map<String, Object>>)payload.get("tasks"));
-        return ResponseEntity.ok().body("hi");
+        return ResponseEntity.ok().body(this.taskService.generateSchedule(timePerDay, tasks));
     }
 }
