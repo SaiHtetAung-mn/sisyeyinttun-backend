@@ -1,0 +1,48 @@
+POST http://localhost:8080/api/generate
+content-type: application/json
+
+{
+    "timePerDay": 5,
+    "tasks": [
+        {
+            "orderId": 1,
+            "title": "Project",
+            "description": "Project description",
+            "urgency": 5,
+            "easiness": 2,
+            "importance": 1,
+            "estimatedTime": 5,
+            "dependency": 2
+        },
+        {
+            "orderId": 2,
+            "title": "Project",
+            "description": "Project description",
+            "urgency": 1,
+            "easiness": 2,
+            "importance": 1,
+            "estimatedTime": 1,
+            "dependency": null
+        },
+        {
+            "orderId": 3,
+            "title": "Project",
+            "description": "Project description",
+            "urgency": 5,
+            "easiness": 3,
+            "importance": 1,
+            "estimatedTime": 4,
+            "dependency": null
+        },
+        {
+            "orderId": 4,
+            "title": "Project",
+            "description": "Project description",
+            "urgency": 1,
+            "easiness": 1,
+            "importance": 1,
+            "estimatedTime": 1,
+            "dependency": 2
+        }
+    ]
+}
