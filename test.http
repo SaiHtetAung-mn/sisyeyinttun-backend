@@ -2,7 +2,7 @@ POST http://localhost:8080/api/generate
 content-type: application/json
 
 {
-    "timePerDay": 5,
+    "timePerDay": 1,
     "tasks": [
         {
             "orderId": 1,

@@ -20,9 +20,11 @@ public class TaskController {
     TaskService taskService;
 
     @PostMapping("/api/generate")
-    public ResponseEntity<List<List<Task>>> computeSchedule(@RequestBody Map<String, Object> payload) {
+    public ResponseEntity<Map<String, Object>> computeSchedule(@RequestBody Map<String, Object> payload) {
         Integer timePerDay = (Integer)payload.get("timePerDay");
         List<Task> tasks = Task.convertToTaskList((List<Map<String, Object>>)payload.get("tasks"));
-        return ResponseEntity.ok().body(this.taskService.generateSchedule(timePerDay, tasks));
+        Map<String, Object> res = Map.of("timePerDay", (Object)timePerDay, "tasks", this.taskService.generateSchedule(timePerDay, tasks));
+        
+        return ResponseEntity.ok().body(res);
     }
 }
